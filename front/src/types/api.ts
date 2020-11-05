@@ -2,8 +2,7 @@ import type {Index, Zone} from './domain'
 
 export interface ApiCity {
 	name: string,
-	postalCode: string,
-	inseeCode: string
+	code: string
 }
 
 export type ApiAggregation = {

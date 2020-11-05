@@ -8,7 +8,7 @@
 	<ul>
 		{#each cities as city}
 			<li>
-				<span>{city.name} ({city.postalCode})</span>
+				<span>{city.name}</span>
 				<button on:click={() => onSelect(city)}>Choisir</button>
 			</li>
 		{/each}

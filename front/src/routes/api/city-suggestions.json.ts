@@ -1,13 +1,11 @@
 const suggestions = JSON.stringify([
 	{
 		name: 'Angers',
-		postalCode: '49000',
-		insee: '12'
+		code: '12'
 	},
 	{
 		name: 'Avrillé',
-		postalCode: '49240',
-		insee: '827'
+		code: '827'
 	}
 ]);
 

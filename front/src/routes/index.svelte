@@ -12,7 +12,7 @@
 
 
 	const handleSelect = (city) => {
-		fetchResults(city.inseeCode);
+		fetchResults(city.code);
 		$citySelected = city;
 	};
 
