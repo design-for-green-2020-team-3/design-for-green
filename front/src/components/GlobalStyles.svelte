@@ -5,19 +5,30 @@
 		--half-unit: calc(var(--unit) / 2);
 		--quarter-unit: calc(var(--unit) / 4);
 		--double-unit: calc(2 * var(--unit));
-		--neutral-color: #fff;
-		--neutral-comp-color: #020202;
-		--theme-color: #0d3280;
-		--theme-light-color: #4b6eb8;
-		--theme-lighter-color: #c2ccdf;
+		--neutral-comp-color: #000;
+		--neutral-color: #F6F8FE;
+		--theme-color: #336EEA;
+		--theme-light-color: #1142a9;
+		--theme-lighter-color: #082051;
 		--theme-comp-color: var(--neutral-color);
+		--positive-color: #6eea33;
+		--negative-color: #ea336e;
+	}
+
+	:global(html.light) {
+		--neutral-comp-color: #fff;
+		--neutral-color: #020202;
+		--theme-color: #0d3280;
+		--theme-light-color: #3A5692;
+		--theme-lighter-color: #c2ccdf;
+		--theme-comp-color: #fff;
 		--positive-color: #32800d;
 		--negative-color: #800d32;
 	}
 
 	:global(html) {
-		background: var(--theme-comp-color);
-		color: var(--theme-color);
+		background: var(--neutral-comp-color);
+		color: var(--neutral-color);
 		line-height: var(--unit);
 		font-size: 100%;
 		font-family: var(--font-family);
@@ -28,15 +39,16 @@
 		padding: var(--unit);
 		max-width: 130ex;
 	}
-
-	:global(input),
-	:global(textarea) {
-		border: 1px solid var(--theme-color);
-		font: inherit;
+	:global(label) {
+		color: var(--theme-color);
 	}
 
-	:global(input[type="search"]) {
+	:global(input) {
+		border: 1px solid var(--theme-light-color);
 		padding: var(--half-unit);
+		background: var(--neutral-comp-color);
+		color: var(--neutral-color);
+		font: inherit;
 	}
 
 	:global(a),
@@ -48,27 +60,32 @@
 		text-decoration: none;
 		background: var(--theme-color);
 		color: var(--theme-comp-color);
+		font: inherit;
+	}
+
+	:global(h1),
+	:global(h2),
+	:global(h3) {
+		margin: 0;
+		color: var(--theme-color);
+		font: inherit;
+		font-weight: 600;
 	}
 
 	:global(h1) {
-		margin: 0;
 		text-transform: uppercase;
 		font-size: 2em;
-		font-weight: 600;
 	}
 
 	:global(h2) {
-		margin: 0;
 		border-bottom: 1px solid var(--theme-light-color);
 		line-height: 1;
 		font-size: var(--unit);
-		font-weight: 600;
 	}
 
 	:global(h3) {
-		margin: 0;
+		color: var(--neutral-color);
 		text-transform: uppercase;
-		font: inherit;
 	}
 
 	:global(p) {

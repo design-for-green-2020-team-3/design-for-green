@@ -59,7 +59,7 @@
 </section>
 
 <style>
-	@media screen and (min-width: 100ex) {
+	@media screen and (min-width: 60em) {
 		.body {
 			display: grid;
 			grid-template-columns: 1fr 1fr;

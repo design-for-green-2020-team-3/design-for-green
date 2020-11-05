@@ -49,15 +49,10 @@
 		margin: 0 0 var(--unit) 0;
 	}
 
-	.body {
-		display: flex;
-	}
-
 	aside {
-		flex-basis: 33%;
-		margin-right: var(--unit);
+		margin-bottom: var(--unit);
 		padding: var(--unit);
-		background: var(--theme-color);
+		background: var(--theme-light-color);
 		color: var(--theme-comp-color);
 	}
 
@@ -87,5 +82,23 @@
 
 	.current .indicator {
 		background: var(--positive-color);
+	}
+
+	@media screen and (min-width: 30em) {
+		.body {
+			display: flex;
+		}
+
+		aside {
+			flex-basis: 33%;
+			margin-right: var(--unit);
+			margin-bottom: 0;
+		}
+	}
+
+	@media screen and (min-width: 60em) {
+		article {
+			margin-bottom: 0;
+		}
 	}
 </style>
