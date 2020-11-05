@@ -14,25 +14,18 @@
 	};
 </script>
 
-<section id="citySearchFrom" data-screen-only>
-	<header>
-		<h2>Recherche</h2>
-	</header>
+<form on:submit={handleSubmit}>
+	<label for="postal-code">Code postal (ex: 49000)</label>
 
-	<form on:submit={handleSubmit}>
-		<label for="postal-code">Code postal (ex: 49000)</label>
+	<div>
+		<input id="postal-code" type="search" pattern="(?:[0-8]\d|9[0-8])\d{`{3}`}" required />
+		<input type="submit" value="Rechercher" />
+		{#if $citySelected || $cities.length}
+			<ResetButton />
+		{/if}
+	</div>
+</form>
 
-		<div>
-			<input id="postal-code" type="search" pattern="(?:[0-8]\d|9[0-8])\d{`{3}`}" required />
-			<input type="submit" value="Rechercher" />
-			{#if $citySelected || $cities.length}
-				<ResetButton />
-			{/if}
-		</div>
-
-	</form>
-
-</section>
 
 <style>
 	input[type="submit"] {

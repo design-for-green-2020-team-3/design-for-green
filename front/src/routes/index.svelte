@@ -22,13 +22,14 @@
 		citySelectedStore as citySelected
 	} from '../stores';
 	import Introduction from '../components/Introduction';
+	import Search from '../components/Search';
 	import CitySearchForm from '../components/CitySearchForm';
 	import CitySelector from '../components/CitySelector';
 	import IndicesAggregations from '../components/IndicesAggregations';
 
-	const handleSelect = (city) => {
-		fetchResults(city.code);
+	const handleSelect = async (city) => {
 		$citySelected = city;
+		await fetchResults(city.code, fetch);
 		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
 		document.getElementById('results').focus();
 	};
@@ -43,15 +44,18 @@
 </svelte:head>
 
 <Introduction />
-<CitySearchForm />
 
-{#if $cities.length}
-	<CitySelector
-		cities={$cities}
-		onSelect={handleSelect}
-		onCancel={handleCancel}
-	/>
-{/if}
+<Search>
+	<CitySearchForm />
+
+	{#if $cities.length}
+		<CitySelector
+			cities={$cities}
+			onSelect={handleSelect}
+			onCancel={handleCancel}
+		/>
+	{/if}
+</Search>
 
 {#if $aggregations}
 	<div id="results" tabindex="-1">
@@ -68,5 +72,10 @@
 <style>
 	div {
 		outline-offset: var(--half-unit);
+	}
+
+	a {
+		display: inline-block;
+		margin-bottom: var(--unit);
 	}
 </style>
