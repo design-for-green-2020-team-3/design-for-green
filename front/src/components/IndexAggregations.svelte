@@ -1,6 +1,7 @@
 <script>
 	import {slide} from 'svelte/transition';
 	import {prop} from 'ramda';
+	import {Zones} from '../types/domain';
 
 	export let title;
 	export let scores;
@@ -8,10 +9,9 @@
 
 	const maxScore = Math.max(...scores.map(prop('score')));
 	const labels = {
-		city: city.name,
-		dpt: 'Département',
-		region: 'Région',
-		global: 'Global'
+		[Zones.epci]: city.name,
+		[Zones.department]: 'Département',
+		[Zones.region]: 'Région'
 	};
 </script>
 
@@ -27,8 +27,8 @@
 
 		<ol class="scores">
 			{#each scores as {zone, score}}
-				<li class:current={zone === 'city'}>
-					<p><strong>{labels[zone]} :</strong> {score}</p>
+				<li class:current={zone === Zones.epci}>
+					<p><strong>{labels[zone]} :</strong> {score.toFixed(2)}</p>
 					<div
 						in:slide
 						class="indicator"

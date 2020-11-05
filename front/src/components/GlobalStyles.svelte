@@ -68,7 +68,8 @@
 
 	:global(h1),
 	:global(h2),
-	:global(h3) {
+	:global(h3),
+	:global(.h3) {
 		margin: 0;
 		color: var(--theme-color);
 		font: inherit;
@@ -86,7 +87,8 @@
 		font-size: var(--unit);
 	}
 
-	:global(h3) {
+	:global(h3),
+	:global(.h3) {
 		border-bottom: 1px solid var(--theme-light-color);
 		text-transform: uppercase;
 	}

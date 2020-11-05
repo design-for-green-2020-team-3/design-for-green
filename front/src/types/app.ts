@@ -1,5 +1,5 @@
-import type {Index, Zone} from './domain';
-import type {ApiCity, ApiResult} from './api';
+import type {AggregationIndex, Index, Zone} from './domain';
+import type {ApiCity} from './api';
 
 export type City = ApiCity;
 
@@ -9,7 +9,22 @@ export interface Aggregation {
 }
 
 export type Aggregations = {
-	[I in Index]: Aggregation[]
+	[I in AggregationIndex]: Aggregation[]
 }
 
-export type Results = ApiResult[];
+export interface ResultData {
+	code: string,
+	name: string,
+	cityName: string,
+	epciName: string,
+	epciScore: number,
+	departmentName: string,
+	departmentScore: number,
+	regionName: string,
+	regionScore: number
+}
+
+export interface Result {
+	index: Index,
+	data: ResultData[]
+}

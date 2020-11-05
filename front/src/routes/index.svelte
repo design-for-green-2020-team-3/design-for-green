@@ -18,14 +18,16 @@
 <script type="ts">
 	import {
 		citySuggestionsStore as cities,
+		citySelectedStore as citySelected,
 		aggregationsStore as aggregations,
-		citySelectedStore as citySelected
+		resultsStore as results
 	} from '../stores';
 	import Introduction from '../components/Introduction';
 	import Search from '../components/Search';
 	import CitySearchForm from '../components/CitySearchForm';
 	import CitySelector from '../components/CitySelector';
 	import IndicesAggregations from '../components/IndicesAggregations';
+	import ResultsTable from '../components/ResultsTable';
 
 	const handleSelect = async (city) => {
 		$citySelected = city;
@@ -58,6 +60,9 @@
 			aggregations={$aggregations}
 			city={$citySelected}
 		/>
+
+		<ResultsTable results={$results} />
+
 		<a href="#citySearchFrom" data-screen-only>
 			Retour à la recherche
 		</a>

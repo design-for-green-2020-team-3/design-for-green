@@ -1,5 +1,6 @@
 <script>
 	import IndexAggregations from './IndexAggregations';
+	import {Indices} from '../types/domain';
 
 	export let aggregations;
 	export let city;
@@ -13,7 +14,7 @@
 	<div class="body">
 		<IndexAggregations
 			title="Accès à l'information"
-			scores={aggregations.informationAccess}
+			scores={aggregations[Indices.Indice0]}
 			city={city}
 		>
 			<p>
@@ -25,7 +26,7 @@
 
 		<IndexAggregations
 			title="Accès aux interfaces numériques"
-			scores={aggregations.digitalAccess}
+			scores={aggregations[Indices.Indice1]}
 			city={city}
 		>
 			<p>
@@ -35,24 +36,24 @@
 		</IndexAggregations>
 
 		<IndexAggregations
-			title="Capacité d'usage des interfaces numériques"
-			scores={aggregations.digitalSkills}
-			city={city}
-		>
-			<p>
-				Identification des populations parmi lesquelles s'observe une fréquence
-				d'illectronisme ou difficulté à utiliser internet.
-			</p>
-		</IndexAggregations>
-
-		<IndexAggregations
 			title="Compétences administratives"
-			scores={aggregations.administrativeSkills}
+			scores={aggregations[Indices.Indice2]}
 			city={city}
 		>
 			<p>
 				Identification des populations parmi lesquelles s'observent des difficultés
 				à accomplir des procédures administratives.
+			</p>
+		</IndexAggregations>
+
+		<IndexAggregations
+			title="Capacité d'usage des interfaces numériques"
+			scores={aggregations[Indices.Indice3]}
+			city={city}
+		>
+			<p>
+				Identification des populations parmi lesquelles s'observe une fréquence
+				d'illectronisme ou difficulté à utiliser internet.
 			</p>
 		</IndexAggregations>
 	</div>

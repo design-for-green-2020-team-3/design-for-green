@@ -1,4 +1,4 @@
-import type {Index, Zone} from './domain'
+import type {AggregationIndex, Index, Zone} from './domain'
 
 export interface ApiCity {
 	name: string,
@@ -6,23 +6,33 @@ export interface ApiCity {
 }
 
 export type ApiAggregation = {
-	[Z in Zone]: number
+	[I in AggregationIndex]: number
 }
 
 export type ApiAggregations = {
-	[I in Index]: ApiAggregation
+	[Z in Zone]: ApiAggregation
 }
 
 export type ApiResultIndices = {
 	[I in Index]: number
 }
 
-export interface ApiResult extends ApiResultIndices {
-	id: string,
-	name: string
+export interface ApiResultZone {
+	name: string,
+	indices: ApiResultIndices
+}
+
+export type ApiResultZones = {
+	[Z in Zone]: ApiResultZone
+}
+
+export interface ApiResult extends ApiResultZones {
+	code: string,
+	name: string,
+	cityName: string,
 }
 
 export interface ApiResults {
-	aggregations: ApiAggregations,
+	agg: ApiAggregations,
 	data: ApiResult[]
 }

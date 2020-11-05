@@ -1,22 +1,40 @@
-import {mapObjIndexed, nth, reverse, sortBy, toPairs} from 'ramda';
-import type {Zone} from './types/domain';
-import type {ApiAggregations, ApiResults} from './types/api';
-import type {Aggregations} from './types/app';
+import {map, prop, reverse, sortBy, zipObj} from 'ramda';
+import type {ApiResults} from './types/api';
+import type {Aggregations, Result} from './types/app';
+import {AggregationsIndicesValues, IndicesValues, ZoneValues} from './constants';
 import {citySuggestionsStore, aggregationsStore, resultsStore} from './stores';
 
-const mapAggregations = (aggregations: ApiAggregations): Aggregations =>
-	mapObjIndexed((aggregation) => {
-		const pairs = toPairs(aggregation);
-		const sorted = reverse(sortBy(nth(1), pairs));
-		return sorted.map(([zone, score]: [Zone, number]) => ({
-			zone,
-			score
-		}));
-	}, aggregations);
+const mapAggregations = ({agg}: ApiResults): Aggregations =>
+	zipObj(
+		AggregationsIndicesValues,
+		AggregationsIndicesValues.map((index) => {
+			const scores = map((zone) => ({
+				zone,
+				score: agg[zone][index]
+			}), ZoneValues);
 
+			return reverse(sortBy(prop('score'), scores));
+		})
+	);
 
-export const fetchCitySuggestions = async (postalCode: string) => {
-	fetch('/api/city-suggestions.json')
+const mapResults = ({data}: ApiResults): Result[] =>
+	IndicesValues.map((index) => ({
+		index,
+		data: data.map((result) => ({
+			code: result.code,
+			name: result.name,
+			cityName: result.cityName,
+			epciName: result.epci.name,
+			epciScore: result.epci.indices[index],
+			departmentName: result.department.name,
+			departmentScore: result.department.indices[index],
+			regionName: result.region.name,
+			regionScore: result.region.indices[index]
+		}))
+	}));
+
+export const fetchCitySuggestions = (code: string) => {
+	fetch(`/api/suggestions/${code}.json`)
 		.then((response) => {
 			if (!response.ok) {
 				throw Error(response.statusText);
@@ -33,11 +51,10 @@ export const fetchCitySuggestions = async (postalCode: string) => {
 		});
 };
 
-export const fetchResults = async (inseeCode: string, fetchHelper = fetch) =>
-	fetchHelper('/api/results.json')
+export const fetchResults = async (code: string, fetchHelper = fetch) =>
+	fetchHelper(`/api/results/${code}.json`)
 		.then((response) => response.json())
 		.then((response: ApiResults) => {
-			const {aggregations, data} = response;
-			aggregationsStore.set(mapAggregations(aggregations));
-			resultsStore.set(data);
+			aggregationsStore.set(mapAggregations(response));
+			resultsStore.set(mapResults(response));
 		});
