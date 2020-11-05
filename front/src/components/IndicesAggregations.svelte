@@ -14,7 +14,7 @@
 	<div class="body">
 		<IndexAggregations
 			title="Accès à l'information"
-			scores={aggregations[Indices.Indice0]}
+			scores={aggregations[Indices.indice0]}
 			city={city}
 		>
 			<p>
@@ -26,7 +26,7 @@
 
 		<IndexAggregations
 			title="Accès aux interfaces numériques"
-			scores={aggregations[Indices.Indice1]}
+			scores={aggregations[Indices.indice1]}
 			city={city}
 		>
 			<p>
@@ -37,7 +37,7 @@
 
 		<IndexAggregations
 			title="Compétences administratives"
-			scores={aggregations[Indices.Indice2]}
+			scores={aggregations[Indices.indice2]}
 			city={city}
 		>
 			<p>
@@ -48,7 +48,7 @@
 
 		<IndexAggregations
 			title="Capacité d'usage des interfaces numériques"
-			scores={aggregations[Indices.Indice3]}
+			scores={aggregations[Indices.indice3]}
 			city={city}
 		>
 			<p>

@@ -1,20 +1,20 @@
 export enum Indices {
-	Indice0 = 'Indice0',
-	Indice1 = 'Indice1',
-	Indice2 = 'Indice2',
-	Indice3 = 'Indice3',
-	Global0 = 'Global0',
-	Global1 = 'Global1',
-	Global = 'Global'
+	indice0 = 'indice0',
+	indice1 = 'indice1',
+	indice2 = 'indice2',
+	indice3 = 'indice3',
+	global0 = 'global0',
+	global1 = 'global1',
+	global = 'global'
 }
 
 export type Index = keyof typeof Indices;
 
 export type AggregationIndex =
-	Indices.Indice0
-	| Indices.Indice1
-	| Indices.Indice2
-	| Indices.Indice3;
+	Indices.indice0
+	| Indices.indice1
+	| Indices.indice2
+	| Indices.indice3;
 
 export enum Zones {
 	epci = 'epci',

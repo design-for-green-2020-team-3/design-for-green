@@ -4,30 +4,30 @@ export const SuggestionsHash = '6ebc138e41dae4d96ce277783310ad2f';
 export const ResultsHash = '17cc291b2301f847fba63341205c8efb';
 
 export const IndicesValues = [
-	Indices.Indice0,
-	Indices.Indice1,
-	Indices.Indice2,
-	Indices.Indice3,
-	Indices.Global0,
-	Indices.Global1,
-	Indices.Global
+	Indices.indice0,
+	Indices.indice1,
+	Indices.indice2,
+	Indices.indice3,
+	Indices.global0,
+	Indices.global1,
+	Indices.global
 ];
 
 export const AggregationsIndicesValues = [
-	Indices.Indice0,
-	Indices.Indice1,
-	Indices.Indice2,
-	Indices.Indice3
+	Indices.indice0,
+	Indices.indice1,
+	Indices.indice2,
+	Indices.indice3
 ];
 
 export const IndicesLabels = {
-	[Indices.Indice0]: 'Accès à l\'information',
-	[Indices.Indice1]: 'Accès aux interfaces numériques',
-	[Indices.Indice2]: 'Compétences administratives',
-	[Indices.Indice3]: 'Compétences numériques / scolaires',
-	[Indices.Global0]: 'Accès global',
-	[Indices.Global1]: 'Compétences globales',
-	[Indices.Global]: 'Global'
+	[Indices.indice0]: 'Accès à l\'information',
+	[Indices.indice1]: 'Accès aux interfaces numériques',
+	[Indices.indice2]: 'Compétences administratives',
+	[Indices.indice3]: 'Compétences numériques / scolaires',
+	[Indices.global0]: 'Accès global',
+	[Indices.global1]: 'Compétences globales',
+	[Indices.global]: 'Global'
 };
 
 export const ZoneValues = [
