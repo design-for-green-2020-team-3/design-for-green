@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const WebpackModules = require('webpack-modules');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const sveltePreprocess = require('svelte-preprocess');
 const path = require('path');
 const config = require('sapper/config/webpack.js');
@@ -35,11 +36,19 @@ module.exports = {
 						loader: 'svelte-loader',
 						options: {
 							dev,
+							emitCss: true,
 							hydratable: true,
 							preprocess: sveltePreprocess(),
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
 						}
 					}
+				},
+				{
+					test: /\.css$/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader'
+					]
 				},
 				fileLoaderRule
 			]
@@ -52,6 +61,12 @@ module.exports = {
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
+			new webpack.optimize.LimitChunkCountPlugin({
+				maxChunks: 1
+			}),
+			new MiniCssExtractPlugin({
+				filename: '[hash]/[name].css'
+			})
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
 	},

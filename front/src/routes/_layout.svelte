@@ -1,3 +1,9 @@
+<script>
+	import GlobalStyles from '../components/GlobalStyles';
+</script>
+
+<GlobalStyles />
+
 <header>
 	<h1>Indice national de Fragilité Numérique</h1>
 </header>
