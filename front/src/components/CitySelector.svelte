@@ -11,7 +11,6 @@
 	<ul>
 		{#each cities as city}
 			<li>
-				<span></span>
 				<button
 					on:click={() => onSelect(city)}
 					title={`Voir l'indice national de fragilité numérique à ${city.name}`}
@@ -25,7 +24,7 @@
 
 <style>
 	ul {
-		padding: 0%;
+		padding: 0;
 		list-style: none;
 	}
 
