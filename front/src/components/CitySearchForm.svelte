@@ -20,7 +20,7 @@
 	<div>
 		<input id="postal-code" type="search" pattern="(?:[0-8]\d|9[0-8])\d{`{3}`}" required />
 		<input type="submit" value="Rechercher" />
-		{#if $citySelected || $cities.length}
+		{#if $citySelected || $cities}
 			<ResetButton />
 		{/if}
 	</div>

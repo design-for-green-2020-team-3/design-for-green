@@ -5,7 +5,15 @@
 
 <div data-screen-only>
 	<p aria-live="polite">
-		{cities.length} commune{cities.length > 1 ? 's' : ''} corresponde{cities.length > 1 ? 'nt' : ''} à votre code postal
+		{#if cities.length === 0}
+			<span>Aucune commune ne correspond au code postal saisi</span>
+		{:else}
+			{#if cities.length === 1}
+				<span>1 commune correspond au code postal saisi</span>
+			{:else}
+				<span>{cities.length} communes correspondent au code postal saisi</span>
+			{/if}
+		{/if}
 	</p>
 
 	<ul>

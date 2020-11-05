@@ -14,11 +14,22 @@ const mapAggregations = (aggregations: ApiAggregations): Aggregations =>
 		}));
 	}, aggregations);
 
-export const fetchCitySuggestions = (postalCode: string) => {
+
+export const fetchCitySuggestions = async (postalCode: string) => {
 	fetch('/api/city-suggestions.json')
+		.then((response) => {
+			if (!response.ok) {
+				throw Error(response.statusText);
+			}
+
+			return response;
+		})
 		.then((response) => response.json())
 		.then((cities) => {
 			citySuggestionsStore.set(cities);
+		})
+		.catch(function (error) {
+			citySuggestionsStore.set([]);
 		});
 };
 

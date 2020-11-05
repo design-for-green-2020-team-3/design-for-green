@@ -10,7 +10,7 @@
 	const onReset = () => {
 		$results = null;
 		$aggregations = null;
-		$cities = [];
+		$cities = null;
 		$citySelected = null;
 	};
 </script>

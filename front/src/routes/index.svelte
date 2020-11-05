@@ -33,10 +33,6 @@
 		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
 		document.getElementById('results').focus();
 	};
-
-	const handleCancel = () => {
-		$cities = [];
-	};
 </script>
 
 <svelte:head>
@@ -48,11 +44,10 @@
 <Search>
 	<CitySearchForm />
 
-	{#if $cities.length}
+	{#if $cities}
 		<CitySelector
 			cities={$cities}
 			onSelect={handleSelect}
-			onCancel={handleCancel}
 		/>
 	{/if}
 </Search>
