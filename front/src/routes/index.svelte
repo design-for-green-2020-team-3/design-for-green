@@ -11,7 +11,6 @@
 				code: query.code,
 				name: query.name
 			});
-			return;
 		}
     }
 </script>
@@ -28,9 +27,10 @@
 	import IndicesAggregations from '../components/IndicesAggregations';
 
 	const handleSelect = (city) => {
-		fetchResults(city.code);
+		fetchResults(city.code).then(() => {console.log('coucou')});
 		$citySelected = city;
 		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
+		document.getElementById('results').focus();
 	};
 
 	const handleCancel = () => {
@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-	<title>Indice national de Fragilité Numérique</title>
+	<title>Indice national de Fragilité Numérique {$citySelected ? `à ${$citySelected.name}` : ''}</title>
 </svelte:head>
 
 <Introduction />
@@ -54,7 +54,7 @@
 {/if}
 
 {#if $aggregations}
-	<div id="results">
+	<div id="results" tabindex="-1">
 		<IndicesAggregations
 			aggregations={$aggregations}
 			city={$citySelected}
@@ -64,3 +64,9 @@
 		</a>
 	</div>
 {/if}
+
+<style>
+	div {
+		outline-offset: var(--half-unit);
+	}
+</style>
