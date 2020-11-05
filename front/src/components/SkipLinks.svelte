@@ -7,18 +7,18 @@
 
 <ul>
 	<li>
-		<a href="#introduction">
+		<a class="button" href="#introduction">
 			Aller à l'introduction
 		</a>
 	</li>
 	<li>
-		<a href="#citySearchFrom">
+		<a class="button" href="#citySearchFrom">
 			Aller à la recherche
 		</a>
 	</li>
 	{#if hasResults}
 		<li>
-			<a href="#results">
+			<a class="button" href="#results">
 				Aller aux résultats : Indice national de fragilité numérique à {city.name}
 			</a>
 		</li>
@@ -34,10 +34,10 @@
 		z-index: 350;
 	}
 
-    li {
-        display: inline-block;
-        list-style: none;
-    }
+	li {
+		display: inline-block;
+		list-style: none;
+	}
 
 	a {
 		position: absolute;
@@ -45,8 +45,6 @@
     	min-width: calc(10 * var(--unit));
 		left: -999em;
 		padding: var(--quarter-unit) var(--unit);
-		background-color: var(--negative-color);
-		border-color: var(--negative-color);
 	}
 
 	a:hover,

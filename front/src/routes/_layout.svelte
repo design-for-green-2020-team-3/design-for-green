@@ -36,9 +36,11 @@
 	footer {
 		display: flex;
 		flex-wrap: wrap;
-		color: var(--theme-comp-color);
+		justify-content: center;
+		margin-top: var(--triple-unit);
+		color: var(--theme-muted-color);
 		padding: var(--half-unit);
-		background-color: var(--theme-color);
+		font-style: italic;
 	}
 
 	ul {
@@ -53,6 +55,8 @@
 	}
 
 	a {
+		border: none;
+		background: none;
 		text-decoration: underline;
 		padding: 0;
 	}

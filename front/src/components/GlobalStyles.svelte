@@ -54,9 +54,13 @@
 		font: inherit;
 	}
 
-	:global(a),
+	:global(a) {
+		color: var(--theme-color);
+	}
+
 	:global(button),
-	:global(input[type="submit"]) {
+	:global(.button) {
+		display: inline-block;
 		border: 1px solid var(--theme-color);
 		padding: var(--half-unit);
 		font: inherit;
@@ -64,6 +68,13 @@
 		background: var(--theme-color);
 		color: var(--theme-comp-color);
 		font: inherit;
+	}
+
+	:global(button:hover),
+	:global(button:focus),
+	:global(.button:hover),
+	:global(.button:focus) {
+		background: var(--theme-light-color);
 	}
 
 	:global(h1),
