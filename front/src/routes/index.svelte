@@ -1,19 +1,36 @@
+<script context="module">
+	import {citySelectedStore} from '../stores';
+	import {fetchResults} from '../api';
+
+    export async function preload(page) {
+		const {query} = page;
+
+		if (query.code && query.name) {
+			fetchResults(query.code, this.fetch);
+			citySelectedStore.set({
+				code: query.code,
+				name: query.name
+			});
+			return;
+		}
+    }
+</script>
+
 <script type="ts">
 	import {
 		citySuggestionsStore as cities,
 		aggregationsStore as aggregations,
 		citySelectedStore as citySelected
 	} from '../stores';
-	import {fetchResults} from '../api';
 	import Introduction from '../components/Introduction';
 	import CitySearchForm from '../components/CitySearchForm';
 	import CitySelector from '../components/CitySelector';
 	import IndicesAggregations from '../components/IndicesAggregations';
 
-
 	const handleSelect = (city) => {
 		fetchResults(city.code);
 		$citySelected = city;
+		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
 	};
 
 	const handleCancel = () => {

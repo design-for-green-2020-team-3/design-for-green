@@ -22,8 +22,8 @@ export const fetchCitySuggestions = (postalCode: string) => {
 		});
 };
 
-export const fetchResults = async (inseeCode: string) =>
-	fetch('/api/results.json')
+export const fetchResults = async (inseeCode: string, fetchHelper = fetch) =>
+	fetchHelper('/api/results.json')
 		.then((response) => response.json())
 		.then((response: ApiResults) => {
 			const {aggregations, data} = response;
