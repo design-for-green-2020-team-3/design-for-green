@@ -4,12 +4,11 @@ WORKDIR /usr/src/app
 
 COPY front/ ./
 
-RUN ls && \
- npm install
+RUN  npm install
 
 #COPY ./front/public ./public
-
-RUN npm run-script build
+ENV NODE_ENV=production
+RUN npm run-script build 
 
 EXPOSE 3000
 
