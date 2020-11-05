@@ -7,14 +7,14 @@
 		--double-unit: calc(2 * var(--unit));
 		--triple-unit: calc(3 * var(--unit));
 		--neutral-comp-color: #000;
-		--neutral-color: #F6F8FE;
-		--theme-color: #336EEA;
-		--theme-light-color: #1142a9;
+		--neutral-color: #FFF;
+		--theme-color: #3770E0;
+		--theme-light-color: #3770E0;
 		--theme-lighter-color: #082051;
-		--theme-muted-color: #9ebaf5;
+		--theme-muted-color: #FFF;
 		--theme-comp-color: var(--neutral-color);
 		--positive-color: #6eea33;
-		--negative-color: #ea336e;
+		--negative-color: #DA1654;
 	}
 
 	:global(html.light) {
