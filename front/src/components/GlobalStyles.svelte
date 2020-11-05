@@ -39,10 +39,13 @@
 		padding: var(--half-unit);
 	}
 
+	:global(a),
 	:global(button),
 	:global(input[type="submit"]) {
 		border: 1px solid var(--theme-color);
 		padding: var(--half-unit);
+		font: inherit;
+		text-decoration: none;
 		background: var(--theme-color);
 		color: var(--theme-comp-color);
 	}

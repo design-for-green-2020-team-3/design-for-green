@@ -18,7 +18,6 @@
 
 	const handleCancel = () => {
 		$cities = [];
-		$citySelected = null;
 	};
 </script>
 
@@ -42,4 +41,9 @@
 		aggregations={$aggregations}
 		city={$citySelected}
 	/>
+	<a href="#citySearchFrom">
+		Retour à la recherche
+	</a>
 {/if}
+
+
