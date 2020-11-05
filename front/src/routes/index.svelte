@@ -1,18 +1,18 @@
 <script context="module">
 	import {citySelectedStore} from '../stores';
-	import {fetchResults} from '../api';
+	import {storeResults} from '../api';
 
-    export async function preload(page) {
+	export async function preload(page) {
 		const {query} = page;
 
 		if (query.code && query.name) {
-			fetchResults(query.code, this.fetch);
+			storeResults(query.code, this.fetch);
 			citySelectedStore.set({
 				code: query.code,
 				name: query.name
 			});
 		}
-    }
+	}
 </script>
 
 <script type="ts">
@@ -28,10 +28,11 @@
 	import CitySelector from '../components/CitySelector';
 	import IndicesAggregations from '../components/IndicesAggregations';
 	import ResultsTable from '../components/ResultsTable';
+	import Download from '../components/Download';
 
 	const handleSelect = async (city) => {
 		$citySelected = city;
-		await fetchResults(city.code, fetch);
+		await storeResults(city.code, fetch);
 		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
 		document.getElementById('results').focus();
 	};
@@ -62,6 +63,7 @@
 		/>
 
 		<ResultsTable results={$results} />
+		<Download city={$citySelected} />
 
 		<a href="#citySearchFrom" data-screen-only>
 			Retour à la recherche

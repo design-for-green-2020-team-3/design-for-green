@@ -3,12 +3,12 @@
 		citySuggestionsStore as cities,
 		citySelectedStore as citySelected
 	} from '../stores';
-	import {fetchCitySuggestions} from '../api';
+	import {storeCitySuggestions} from '../api';
 	import ResetButton from './ResetButton';
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		fetchCitySuggestions(
+		storeCitySuggestions(
 			document.getElementById('postal-code').value
 		);
 	};

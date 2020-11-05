@@ -1,4 +1,6 @@
 <script>
+	import {IndicesLabels} from '../constants';
+
 	export let results;
 </script>
 
@@ -10,7 +12,7 @@
 	{#each results as result}
 		<div class="container">
 			<table>
-				<caption class="h3">{result.index}</caption>
+				<caption class="h3">{IndicesLabels[result.index]}</caption>
 
 				<thead>
 					<th scope="col">Code</th>

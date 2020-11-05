@@ -33,7 +33,7 @@ const mapResults = ({data}: ApiResults): Result[] =>
 		}))
 	}));
 
-export const fetchCitySuggestions = (code: string) => {
+export const storeCitySuggestions = (code: string) => {
 	fetch(`/api/suggestions/${code}.json`)
 		.then((response) => {
 			if (!response.ok) {
@@ -51,10 +51,17 @@ export const fetchCitySuggestions = (code: string) => {
 		});
 };
 
-export const fetchResults = async (code: string, fetchHelper = fetch) =>
-	fetchHelper(`/api/results/${code}.json`)
+export const fetchResults = async (url: string, fetchHelper = fetch) =>
+	fetchHelper(url)
 		.then((response) => response.json())
-		.then((response: ApiResults) => {
-			aggregationsStore.set(mapAggregations(response));
-			resultsStore.set(mapResults(response));
+		.then((response: ApiResults) => ({
+			aggregations: mapAggregations(response),
+			results: mapResults(response)
+		}));
+
+export const storeResults = async (code: string, fetchHelper = fetch) =>
+	fetchResults(`/api/results/${code}.json`, fetchHelper)
+		.then(({aggregations, results}) => {
+			aggregationsStore.set(aggregations);
+			resultsStore.set(results);
 		});
