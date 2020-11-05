@@ -1,12 +1,15 @@
 <script>
 	import GlobalStyles from '../components/GlobalStyles';
 	import ThemeSwitcher from '../components/ThemeSwitcher';
+	import SkipLinks from '../components/SkipLinks';
+	import {citySelectedStore as citySelected} from '../stores';
 </script>
 
 <GlobalStyles />
 
 <header>
 	<h1>Indice national de Fragilité Numérique</h1>
+	<SkipLinks hasResults={!!$citySelected} city={$citySelected} />
 	<ThemeSwitcher />
 </header>
 

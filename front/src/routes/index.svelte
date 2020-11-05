@@ -54,13 +54,15 @@
 {/if}
 
 {#if $aggregations}
-	<IndicesAggregations
-		aggregations={$aggregations}
-		city={$citySelected}
-	/>
-	<a href="#citySearchFrom">
-		Retour à la recherche
-	</a>
+	<div id="results">
+		<IndicesAggregations
+			aggregations={$aggregations}
+			city={$citySelected}
+		/>
+		<a href="#citySearchFrom">
+			Retour à la recherche
+		</a>
+	</div>
 {/if}
 
 

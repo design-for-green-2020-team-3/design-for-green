@@ -11,9 +11,9 @@
 	};
 </script>
 
-<section>
+<section id="citySearchFrom">
 	<header>
-		<h2 id="citySearchFrom">Recherche</h2>
+		<h2>Recherche</h2>
 	</header>
 
 	<form on:submit={handleSubmit}>
