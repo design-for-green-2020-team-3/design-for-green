@@ -1,7 +1,7 @@
 import {map, prop, reverse, sortBy, zipObj} from 'ramda';
 import type {ApiResults} from './types/api';
 import type {Aggregations, Result} from './types/app';
-import {AggregationsIndicesValues, IndicesValues, ZoneValues} from './constants';
+import {AggregationsIndicesValues, IndicesValues, ResultsHash, SuggestionsHash, ZoneValues} from './constants';
 import {citySuggestionsStore, aggregationsStore, resultsStore} from './stores';
 
 const mapAggregations = ({agg}: ApiResults): Aggregations =>
@@ -34,7 +34,7 @@ const mapResults = ({data}: ApiResults): Result[] =>
 	}));
 
 export const storeCitySuggestions = (code: string) => {
-	fetch(`/api/suggestions/${code}.json`)
+	fetch(`/api/postal_code/${SuggestionsHash}/${code}.json`)
 		.then((response) => {
 			if (!response.ok) {
 				throw Error(response.statusText);
@@ -60,7 +60,7 @@ export const fetchResults = async (url: string, fetchHelper = fetch) =>
 		}));
 
 export const storeResults = async (code: string, fetchHelper = fetch) =>
-	fetchResults(`/api/results/${code}.json`, fetchHelper)
+	fetchResults(`/api/search/${ResultsHash}/${code}.json`, fetchHelper)
 		.then(({aggregations, results}) => {
 			aggregationsStore.set(aggregations);
 			resultsStore.set(results);

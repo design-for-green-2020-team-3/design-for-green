@@ -1,5 +1,8 @@
 import {Indices, Zones} from './types/domain';
 
+export const SuggestionsHash = '6ebc138e41dae4d96ce277783310ad2f';
+export const ResultsHash = '17cc291b2301f847fba63341205c8efb';
+
 export const IndicesValues = [
 	Indices.Indice0,
 	Indices.Indice1,
