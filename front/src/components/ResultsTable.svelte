@@ -61,21 +61,26 @@
 		text-align: left;
 	}
 
-	th,
-	td {
-		padding: var(--half-unit);
-		vertical-align: top;
-	}
-
 	th {
+		padding: var(--half-unit) var(--quarter-unit);
 		color: var(--theme-muted-color);
 		text-align: left;
 		font-style: italic;
 		font-weight: normal;
+		vertical-align: top;
 	}
 
 	thead th {
 		border-bottom: 1px solid var(--theme-light-color);
+	}
+
+	td {
+		padding: 0 var(--quarter-unit);
+		vertical-align: top;
+	}
+
+	tr:first-child td {
+		padding-top: var(--half-unit);
 	}
 
 	.score {
