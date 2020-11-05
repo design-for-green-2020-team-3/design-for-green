@@ -4,7 +4,7 @@
 	export let onCancel;
 </script>
 
-<div>
+<div data-screen-only>
 	<ul>
 		{#each cities as city}
 			<li>

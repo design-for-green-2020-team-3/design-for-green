@@ -1,0 +1,31 @@
+* {
+	background: none !important;
+	color: #000 !important;
+}
+
+html {
+	font-size: 10pt !important;
+}
+
+#sapper {
+	max-width: 100% !important;
+	padding: 0 !important;
+}
+
+.scores {
+	display: flex;
+}
+
+.scores p:after {
+	display: inline-block;
+	margin: 0 var(--quarter-unit);
+	content: '/';
+}
+
+.scores li:last-child p:after {
+	display: none;
+}
+
+[data-screen-only] {
+	display: none !important;
+}

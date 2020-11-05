@@ -17,7 +17,7 @@
 			city={city}
 		>
 			<p>
-				Identifier des territoires mal couverts par une offre de service
+				Identification des territoires mal couverts par une offre de service
 				d'information ou des populations qui auront des difficultés à comprendre
 				l'information.
 			</p>
@@ -29,7 +29,7 @@
 			city={city}
 		>
 			<p>
-				Identifier des territoires mal couverts par les réseaux ou dans
+				Identification des territoires mal couverts par les réseaux ou dans
 				lesquels des populations auront des difficultés financières à y accéder.
 			</p>
 		</IndexAggregations>
@@ -40,7 +40,7 @@
 			city={city}
 		>
 			<p>
-				Identifier des populations parmi lesquelles s'observe une fréquence
+				Identification des populations parmi lesquelles s'observe une fréquence
 				d'illectronisme ou difficulté à utiliser internet.
 			</p>
 		</IndexAggregations>
@@ -51,7 +51,7 @@
 			city={city}
 		>
 			<p>
-				Identifier des populations parmi lesquelles s'observent des difficultés
+				Identification des populations parmi lesquelles s'observent des difficultés
 				à accomplir des procédures administratives.
 			</p>
 		</IndexAggregations>
@@ -64,7 +64,7 @@
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: 1fr 1fr;
-			gap: var(--double-unit);
+			gap: var(--triple-unit);
 		}
 	}
 </style>

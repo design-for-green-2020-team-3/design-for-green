@@ -21,6 +21,6 @@
 	};
 </script>
 
-<button aria-hidden="true" on:click={handleClick}>
+<button aria-hidden="true" on:click={handleClick} data-screen-only>
 	Thème clair / sombre
 </button>

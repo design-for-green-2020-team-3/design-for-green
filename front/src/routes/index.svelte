@@ -59,10 +59,8 @@
 			aggregations={$aggregations}
 			city={$citySelected}
 		/>
-		<a href="#citySearchFrom">
+		<a href="#citySearchFrom" data-screen-only>
 			Retour à la recherche
 		</a>
 	</div>
 {/if}
-
-

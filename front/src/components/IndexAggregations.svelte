@@ -25,7 +25,7 @@
 			<slot></slot>
 		</aside>
 
-		<ol>
+		<ol class="scores">
 			{#each scores as {zone, score}}
 				<li class:current={zone === 'city'}>
 					<p><strong>{labels[zone]} :</strong> {score}</p>
@@ -33,6 +33,7 @@
 						in:slide
 						class="indicator"
 						style="width: {(score / maxScore) * 100}%"
+						data-screen-only
 					/>
 				</li>
 			{/each}
@@ -51,9 +52,8 @@
 
 	aside {
 		margin-bottom: var(--unit);
-		padding: var(--unit);
-		background: var(--theme-light-color);
-		color: var(--theme-comp-color);
+		color: var(--theme-muted-color);
+		font-style: italic;
 	}
 
 	ol {
@@ -63,17 +63,14 @@
 		list-style: none;
 	}
 
-	li {
-		margin-bottom: var(--half-unit);
-	}
-
-	li:last-child {
-		margin-bottom: 0;
-	}
-
 	.indicator {
+		margin-bottom: var(--half-unit);
 		height: var(--half-unit);
 		background: var(--theme-lighter-color);
+	}
+
+	li:last-child .indicator {
+		margin-bottom: 0;
 	}
 
 	.current {
@@ -87,11 +84,12 @@
 	@media screen and (min-width: 30em) {
 		.body {
 			display: flex;
+			flex-direction: row-reverse;
 		}
 
 		aside {
 			flex-basis: 33%;
-			margin-right: var(--unit);
+			margin-left: var(--unit);
 			margin-bottom: 0;
 		}
 	}

@@ -5,11 +5,13 @@
 		--half-unit: calc(var(--unit) / 2);
 		--quarter-unit: calc(var(--unit) / 4);
 		--double-unit: calc(2 * var(--unit));
+		--triple-unit: calc(3 * var(--unit));
 		--neutral-comp-color: #000;
 		--neutral-color: #F6F8FE;
 		--theme-color: #336EEA;
 		--theme-light-color: #1142a9;
 		--theme-lighter-color: #082051;
+		--theme-muted-color: #9ebaf5;
 		--theme-comp-color: var(--neutral-color);
 		--positive-color: #6eea33;
 		--negative-color: #ea336e;
@@ -21,6 +23,7 @@
 		--theme-color: #0d3280;
 		--theme-light-color: #3A5692;
 		--theme-lighter-color: #c2ccdf;
+		--theme-muted-color: #061639;
 		--theme-comp-color: #fff;
 		--positive-color: #32800d;
 		--negative-color: #800d32;
@@ -84,7 +87,7 @@
 	}
 
 	:global(h3) {
-		color: var(--neutral-color);
+		border-bottom: 1px solid var(--theme-light-color);
 		text-transform: uppercase;
 	}
 
@@ -97,6 +100,6 @@
 	}
 
 	:global(section > header) {
-		margin: 0 0 var(--unit) 0;
+		margin: 0 0 var(--double-unit) 0;
 	}
 </style>
