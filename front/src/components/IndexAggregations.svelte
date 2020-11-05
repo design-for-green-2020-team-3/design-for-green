@@ -29,7 +29,7 @@
 				<li class:current={zone === 'city'}>
 					<p><strong>{labels[zone]} :</strong> {score}</p>
 					<div
-					in:slide
+						in:slide
 						class="indicator"
 						style="width: {(score / maxScore) * 100}%"
 					/>
