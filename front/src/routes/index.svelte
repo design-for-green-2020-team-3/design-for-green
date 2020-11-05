@@ -27,7 +27,7 @@
 	import IndicesAggregations from '../components/IndicesAggregations';
 
 	const handleSelect = (city) => {
-		fetchResults(city.code).then(() => {console.log('coucou')});
+		fetchResults(city.code);
 		$citySelected = city;
 		window.history.replaceState(null, null, `?code=${city.code}&name=${city.name}`);
 		document.getElementById('results').focus();

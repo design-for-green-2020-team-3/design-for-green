@@ -23,7 +23,7 @@
 		<label for="postal-code">Code postal (ex: 49000)</label>
 
 		<div>
-			<input id="postal-code" type="search" pattern="(?:[0-8]\d|9[0-8])\d{`{3}`}" />
+			<input id="postal-code" type="search" pattern="(?:[0-8]\d|9[0-8])\d{`{3}`}" required />
 			<input type="submit" value="Rechercher" />
 			{#if $citySelected || $cities.length}
 				<ResetButton />
@@ -35,8 +35,13 @@
 </section>
 
 <style>
+	input[type="submit"] {
+		margin-right: var(--quarter-unit);
+	}
+
 	div {
 		display: flex;
+		flex-wrap: wrap;
 		width: 100%;
 		margin-bottom: var(--unit);
 	}

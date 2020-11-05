@@ -21,7 +21,6 @@
 
 <style>
 	button {
-		margin-left: var(--quarter-unit);
 		background-color: var(--negative-color);
 		border-color: var(--negative-color);
 	}
