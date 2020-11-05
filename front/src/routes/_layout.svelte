@@ -7,7 +7,7 @@
 
 <GlobalStyles />
 
-<header>
+<header role="banner">
 	<h1>Indice national de Fragilité Numérique</h1>
 	<SkipLinks hasResults={!!$citySelected} city={$citySelected} />
 	<ThemeSwitcher />
@@ -17,9 +17,44 @@
 	<slot></slot>
 </main>
 
+<footer role="contentinfo">
+	<p>©Team 3 - Design4green 2020</p>
+	<ul>
+		<li>
+			<a href="https://institutnr.org/mentions-legales" target="_blank" title="Mentions légales (nouvel onglet)">
+				Mentions légales
+			</a>
+		</li>
+	</ul>
+</footer>
+
 <style>
 	header {
 		padding: var(--double-unit) 0;
+	}
+
+	footer {
+		display: flex;
+		flex-wrap: wrap;
+		color: var(--theme-comp-color);
+		padding: var(--half-unit);
+		background-color: var(--theme-color);
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li:before {
+		content: '|';
+   		padding: 0 var(--half-unit);
+	}
+
+	a {
+		text-decoration: underline;
+		padding: 0;
 	}
 
 	h1 {
