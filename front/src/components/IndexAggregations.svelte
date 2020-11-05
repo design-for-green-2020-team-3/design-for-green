@@ -4,10 +4,11 @@
 
 	export let title;
 	export let scores;
+	export let city;
 
 	const maxScore = Math.max(...scores.map(prop('score')));
 	const labels = {
-		city: 'Ville',
+		city: city.name,
 		dpt: 'Département',
 		region: 'Région',
 		global: 'Global'

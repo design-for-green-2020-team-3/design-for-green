@@ -6,10 +6,10 @@
 
 <div>
 	<ul>
-		{#each cities as {name, postalCode, inseeCode}}
+		{#each cities as city}
 			<li>
-				<span>{name} ({postalCode})</span>
-				<button on:click={() => onSelect(inseeCode)}>Choisir</button>
+				<span>{city.name} ({city.postalCode})</span>
+				<button on:click={() => onSelect(city)}>Choisir</button>
 			</li>
 		{/each}
 

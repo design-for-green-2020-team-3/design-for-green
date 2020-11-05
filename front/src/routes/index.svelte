@@ -1,7 +1,8 @@
 <script type="ts">
 	import {
 		citySuggestionsStore as cities,
-		aggregationsStore as aggregations
+		aggregationsStore as aggregations,
+		citySelectedStore as citySelected
 	} from '../stores';
 	import {fetchResults} from '../api';
 	import Introduction from '../components/Introduction';
@@ -10,12 +11,14 @@
 	import IndicesAggregations from '../components/IndicesAggregations';
 
 
-	const handleSelect = (inseeCode) => {
-		fetchResults(inseeCode);
+	const handleSelect = (city) => {
+		fetchResults(city.inseeCode);
+		$citySelected = city;
 	};
 
 	const handleCancel = () => {
 		$cities = [];
+		$citySelected = null;
 	};
 </script>
 
@@ -35,5 +38,8 @@
 {/if}
 
 {#if $aggregations}
-	<IndicesAggregations aggregations={$aggregations} />
+	<IndicesAggregations
+		aggregations={$aggregations}
+		city={$citySelected}
+	/>
 {/if}
