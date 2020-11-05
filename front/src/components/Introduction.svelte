@@ -5,10 +5,12 @@
 
 	<div>
 		<p>
-			L'indice de fragilité numérique, par sa représentation graphique, révèle
-			les zones d'exclusion numérique sur un territoire donné. Cet outil permet,
-			que vous soyez une commune, un département ou une région de comparer votre
-			indice de fragilité numérique avec les autres territoires.
+			L'indice de fragilité numérique révèle les zones d'exclusion numérique
+			sur un territoire donné.
+			<br />
+			Cet outil permet de comparer les différents indices d'accès et de
+			compétences d'une commune avec son département, sa région, ainsi que les
+			autres communes du territoire.
 		</p>
 	</div>
 </section>
