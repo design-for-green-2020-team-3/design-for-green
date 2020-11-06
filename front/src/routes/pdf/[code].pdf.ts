@@ -1,12 +1,12 @@
 import {jsPDF} from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import fetch from 'node-fetch';
-import {IndicesLabels} from '../../constants';
+import {IndicesLabels, ResultsHash} from '../../constants';
 import {fetchResults} from '../../api';
 
 export const get = async (req, res) => {
 	const {code} = req.params;
-	const url = `http://${req.headers.host}/api/results/${code}.json`;
+	const url = `http://${req.headers.host}/api/search/${ResultsHash}/${code}.json`;
 	const {results} = await fetchResults(url, fetch);
 	const doc = new jsPDF({
 		filters: [
