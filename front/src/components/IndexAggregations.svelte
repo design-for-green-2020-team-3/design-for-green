@@ -7,13 +7,12 @@
 	export let scores;
 	export let city;
 
-	const labels = {
+	$: maxScore = Math.max(...scores.map(prop('score')));
+	$: labels = {
 		[Zones.epci]: city.name,
 		[Zones.department]: 'Département',
 		[Zones.region]: 'Région'
 	};
-
-	$: maxScore = Math.max(...scores.map(prop('score')));
 </script>
 
 <article>
